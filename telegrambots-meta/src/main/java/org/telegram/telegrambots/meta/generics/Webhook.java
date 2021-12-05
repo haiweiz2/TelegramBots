@@ -12,4 +12,11 @@ public interface Webhook {
     void registerWebhook(WebhookBot callback);
     void setInternalUrl(String internalUrl);
     void setKeyStore(String keyStore, String keyStorePassword) throws TelegramApiException;
+
+    // CS427 Issue link: https://github.com/rubenlagus/TelegramBots/issues/433
+    /**
+     * unRegister a WebhookBot bot.
+     * @param WebhookBot bot to unRegister
+     */
+    void unRegisterWebhook(WebhookBot callback);
 }

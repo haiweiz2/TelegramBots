@@ -21,4 +21,12 @@ public interface TelegramBot {
     default void onRegister() {
     }
 
+    // CS427 Issue link: https://github.com/rubenlagus/TelegramBots/issues/433
+    /**
+     * Is called when bot gets unRegistered
+     */
+    default void offRegister() {
+    }
+
+
 }

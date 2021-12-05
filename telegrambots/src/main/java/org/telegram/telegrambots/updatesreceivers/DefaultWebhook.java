@@ -44,6 +44,15 @@ public class DefaultWebhook implements Webhook {
         restApi.registerCallback(callback);
     }
 
+    // CS427 Issue link: https://github.com/rubenlagus/TelegramBots/issues/433
+    /**
+     * unRegister a WebhookBot bot.
+     * @param WebhookBot bot to unRegister
+     */
+    public void unRegisterWebhook(WebhookBot callback) {
+        restApi.unRegisterCallback(callback);
+    }
+
     public void startServer() throws TelegramApiException {
         ResourceConfig rc = new ResourceConfig();
         rc.register(restApi);

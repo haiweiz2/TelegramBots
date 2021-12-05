@@ -36,6 +36,18 @@ public class RestApi {
         }
     }
 
+    // CS427 Issue link: https://github.com/rubenlagus/TelegramBots/issues/433
+    /**
+     * unRegister a WebhookBot bot.
+     * @param WebhookBot bot to unRegister
+     */
+    public void unRegisterCallback(WebhookBot callback) {
+        if (callbacks.containsKey(callback.getBotPath())) {
+            callbacks.remove(callback.getBotPath());
+        }
+    }
+
+
     @POST
     @Path("/{botPath}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -49,7 +61,7 @@ public class RestApi {
                 }
                 return Response.ok(response).build();
             } catch (TelegramApiValidationException e) {
-                log.error(e.getLocalizedMessage(), e);
+                //log.error(e.getLocalizedMessage(), e);
                 return Response.serverError().build();
             }
         }

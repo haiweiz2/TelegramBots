@@ -109,4 +109,25 @@ public class TelegramBotsApi {
         return !Strings.isNullOrEmpty(telegramBot.getBotToken()) &&
                 !Strings.isNullOrEmpty(telegramBot.getBotUsername());
     }
+
+
+    // CS427 Issue link: https://github.com/rubenlagus/TelegramBots/issues/433
+    /**
+     * unRegister a WebhookBot bot.
+     * @param WebhookBot bot to unRegister
+     */
+    public void unRegisterBot(WebhookBot bot) throws TelegramApiException {
+        if (useWebhook) {
+            if (webhook == null) {
+                throw new TelegramApiException("This instance doesn't support Webhook bot, use correct constructor");
+            }
+            if (!validateBotUsernameAndToken(bot)) {
+                throw new TelegramApiException("Bot token and username can't be empty");
+            }
+            bot.offRegister();
+            webhook.unRegisterWebhook(bot);
+            bot.setWebhook(null);
+        }
+    }
+
 }

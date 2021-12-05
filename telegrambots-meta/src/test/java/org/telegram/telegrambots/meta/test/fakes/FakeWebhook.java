@@ -25,6 +25,11 @@ public class FakeWebhook implements Webhook {
     }
 
     @Override
+    public void unRegisterWebhook(WebhookBot callback) {
+
+    }
+
+    @Override
     public void setInternalUrl(String internalUrl) {
         this.internalUrl = internalUrl;
     }
