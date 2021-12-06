@@ -24,6 +24,11 @@ public class FakeWebhook implements Webhook {
 
     }
 
+    // CS427 Issue link: https://github.com/rubenlagus/TelegramBots/issues/433
+    /**
+     * unRegister a WebhookBot bot.
+     * @param WebhookBot bot to unRegister
+     */
     @Override
     public void unRegisterWebhook(WebhookBot callback) {
 

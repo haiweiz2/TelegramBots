@@ -62,7 +62,7 @@ public class TelegramBotsApi {
             throw new TelegramApiException("Bot token and username can't be empty");
         }
         bot.onRegister();
-        //bot.clearWebhook();
+        bot.clearWebhook();
         BotSession session;
         try {
             session = botSessionClass.getConstructor().newInstance();
